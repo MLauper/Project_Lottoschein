@@ -4,6 +4,9 @@
     <entry_points version="2.0" />
   </component>
   <component name="IdProvider" IDEtalkID="9454BB8E4BE5E5EA6BBBF30965F68FBE" />
+  <component name="ProjectKey">
+    <option name="state" value="https://github.com/gBaw/Project_Lottoschein.git" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
