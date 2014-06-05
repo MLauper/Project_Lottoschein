@@ -16,9 +16,7 @@ public class main_test {
     public static void main(String[] args) {
 
 
-
-        try
-        {
+        try {
 
             File file = new File("lottery_tickets_sample.xml");
             Source source = new StreamSource(file);
@@ -35,9 +33,7 @@ public class main_test {
 
             System.out.println(lotteryTicketsType.getLotteryTicket().get(0).getIdentifier());
 
-        }
-
-        catch(
+        } catch (
                 JAXBException e
                 )
 
@@ -45,7 +41,6 @@ public class main_test {
             e.printStackTrace();
         }
     }
-
 
 
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="controlsfx-8.0.1">
+    <archive path="C:/Users/Marco/IdeaProjects/Project_Lottoschein2/ressources/controlsfx-8.0.1.jar" />
+  </library>
+  <library name="Python 3.3.4 (C:/Python33/python.exe) interpreter library">
+    <archive path="C:/Python33/DLLs" />
+    <archive path="C:/Python33/Lib" />
+    <archive path="C:/Python33" />
+    <archive path="C:/Python33/Lib/site-packages" />
+    <archive path="C:/Users/Marco/.IntelliJIdea13/system/python_stubs/-1571908645" />
+  </library>
+</eclipse-userlibraries>
+

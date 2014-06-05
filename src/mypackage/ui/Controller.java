@@ -4,25 +4,14 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.*;
+import javafx.stage.Stage;
 import mypackage.LotteryTicketsType;
 import org.controlsfx.control.action.Action;
-import org.controlsfx.dialog.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -41,34 +30,28 @@ import java.io.IOException;
 
 public class Controller {
 
+    private static Stage primaryStage;
     private final boolean LOG = true;
-
-    @FXML
-    private Font x1;
-
-    @FXML
-    private Color x2;
-
-    @FXML
-    private Font x3;
-
-    @FXML
-    private Color x4;
-
-    @FXML
-    private Button button;
-
-    @FXML
-    private TextField winningNo1;
-
     StringProperty propertyWinningNo1 = new SimpleStringProperty("1");
     StringProperty xmlPath = new SimpleStringProperty();
     Stage mainStage;
-
-
+    LotteryTicketsType lotteryTicketsRootElement;
+    @FXML
+    private Font x1;
+    @FXML
+    private Color x2;
+    @FXML
+    private Font x3;
+    @FXML
+    private Color x4;
+    @FXML
+    private Button button;
+    @FXML
+    private TextField winningNo1;
     @FXML
     private TextField txtXMLPath;
-    private static Stage primaryStage;
+    @FXML
+    private TextField txtXSDPath;
 
     public static void setPrimaryStage(Stage primaryStage) {
         Controller.primaryStage = primaryStage;
@@ -94,18 +77,12 @@ public class Controller {
 
     }
 
-    LotteryTicketsType lotteryTicketsRootElement;
-
-
-    @FXML
-    private TextField txtXSDPath;
-
     @FXML
     void btnLoadXMLClicked(ActionEvent event) {
         log("btnLoadXMLClicked");
         log("Path: " + xmlPath.getValue());
 
-        if(!validateXML()){
+        if (!validateXML()) {
             log("XML not Valid!");
             Action response = org.controlsfx.dialog.Dialogs.create()
                     .owner(null)
@@ -136,8 +113,13 @@ public class Controller {
         }
     }
 
-    private boolean validateXML()
-    {
+    private void log(String message) {
+        if (LOG) {
+            System.out.println("JavaFX Controller: " + message);
+        }
+    }
+
+    private boolean validateXML() {
         try {
             SchemaFactory factory =
                     SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -153,17 +135,6 @@ public class Controller {
         }
         return true;
     }
-
-
-    private void log(String message) {
-        if (LOG) {
-            System.out.println("JavaFX Controller: " + message);
-        }
-    }
-
-
-
-
 
 
 }
