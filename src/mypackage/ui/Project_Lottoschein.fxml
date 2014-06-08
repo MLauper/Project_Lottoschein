@@ -17,10 +17,10 @@
                         <MenuItem mnemonicParsing="false" text="%menu.title.quit" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="%menu.title.settings">
+                <Menu mnemonicParsing="false" text="%menu.title.language">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="%menu.title.undo" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.redo" />
+                        <MenuItem mnemonicParsing="false" text="%menu.title.en" />
+                        <MenuItem mnemonicParsing="false" text="%menu.title.de" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%menu.title.help">
@@ -34,7 +34,7 @@
             <items>
                 <AnchorPane prefHeight="551.0" prefWidth="329.0">
                     <children>
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="%label.text.master" textAlignment="CENTER" wrapText="false">
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="%label.text.setup" textAlignment="CENTER" wrapText="false">
                             <font>
                                 <Font size="18.0" fx:id="x1" />
                             </font>
@@ -45,7 +45,7 @@
                         <TextField fx:id="winningNo1" layoutX="75.0" layoutY="397.0" prefHeight="25.0" prefWidth="28.0" />
                         <Button fx:id="button" layoutX="115.0" layoutY="397.0" mnemonicParsing="false" onAction="#button_clicked" text="Button" />
                         <Label layoutX="19.0" layoutY="45.0" text="%label.text.xsdfile" />
-                        <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" prefWidth="328.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\src\lottery_tickets.xsd" />
+                        <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\src\lottery_tickets.xsd" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
                   <TextField layoutX="58.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField layoutX="142.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="13.0" layoutY="104.0" text="%label.text.current.number" />
@@ -63,21 +63,23 @@
                     <content>
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
-                                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.view" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                              <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\lottery_tickets_sample.xml" />
+                                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.lotterytickets" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                              <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\lottery_tickets_sample.xml" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
                               <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" />
                               <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
-                        <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketnumber" /><ComboBox layoutX="170.0" layoutY="135.0" prefHeight="26.0" prefWidth="96.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="135.0" /><TabPane layoutX="14.0" layoutY="102.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="170.0">
-  <tabs>
-    <Tab text="Play 1" />
-    <Tab text="Play 2" />
-<Tab text="Play 3" />
-<Tab text="Play 4" />
-<Tab text="Play 5" />
-<Tab text="Play 6" />
-<Tab text="Play 7" />
-  </tabs>
-</TabPane>
+                        <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketnumber" />
+                        <ComboBox layoutX="170.0" layoutY="135.0" prefHeight="26.0" prefWidth="96.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="135.0" />
+                        <TabPane layoutX="14.0" layoutY="102.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="170.0">
+      <tabs>
+      <Tab text="Play 1" />
+      <Tab text="Play 2" />
+      <Tab text="Play 3" />
+      <Tab text="Play 4" />
+      <Tab text="Play 5" />
+      <Tab text="Play 6" />
+      <Tab text="Play 7" />
+      </tabs>
+      </TabPane>
                         <Label layoutX="72.0" layoutY="170.0" text="%label.text.number" />
                         <TextField layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
                         <TextField layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
@@ -97,13 +99,13 @@
                 </ScrollPane>
                 <AnchorPane>
                     <children>
-                        <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <Label layoutX="14.0" layoutY="93.0" text="%label.text.result.validnumbers" />
-                  <TextField layoutX="17.0" layoutY="116.0" />
-                  <Label layoutX="17.0" layoutY="168.0" text="%label.text.result.validstarnumbers" />
-                  <TextField layoutX="17.0" layoutY="193.0" />
-                  <Label layoutX="14.0" layoutY="237.0" text="%label.text.result.validsuperstarnumbers" />
-                  <TextField layoutX="17.0" layoutY="275.0" />
+                        <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.results" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <Label layoutX="14.0" layoutY="172.0" text="%label.text.result.validnumbers" />
+                  <TextField layoutX="15.0" layoutY="196.0" />
+                  <Label layoutX="17.0" layoutY="233.0" text="%label.text.result.validstarnumbers" />
+                  <TextField layoutX="15.0" layoutY="255.0" />
+                  <Label layoutX="16.0" layoutY="296.0" text="%label.text.result.validsuperstarnumbers" />
+                  <TextField layoutX="19.0" layoutY="321.0" />
                     </children>
                 </AnchorPane>
             </items>
