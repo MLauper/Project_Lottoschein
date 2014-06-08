@@ -14,32 +14,13 @@
             <menus>
                 <Menu mnemonicParsing="false" text="%menu.title.file">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="%menu.title.new" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.open" />
-                        <Menu mnemonicParsing="false" text="%menu.title.open.recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.close" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.save" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.save.as" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.preferences" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="%menu.title.quit" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="%menu.title.edit">
+                <Menu mnemonicParsing="false" text="%menu.title.settings">
                     <items>
                         <MenuItem mnemonicParsing="false" text="%menu.title.undo" />
                         <MenuItem mnemonicParsing="false" text="%menu.title.redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.cut" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.copy" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.paste" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.select.all" />
-                        <MenuItem mnemonicParsing="false" text="%menu.title.unselect.all" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%menu.title.help">
@@ -63,21 +44,18 @@
                         </Label>
                         <TextField fx:id="winningNo1" layoutX="75.0" layoutY="397.0" prefHeight="25.0" prefWidth="28.0" />
                         <Button fx:id="button" layoutX="115.0" layoutY="397.0" mnemonicParsing="false" onAction="#button_clicked" text="Button" />
-                        <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="306.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\lottery_tickets_sample.xml" />
-                        <Button layoutX="263.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="Load XML" />
-                        <Label layoutX="19.0" layoutY="290.0" text="XML File" />
-                        <Label layoutX="19.0" layoutY="45.0" text="XSD for validation" />
+                        <Label layoutX="19.0" layoutY="45.0" text="%label.text.xsdfile" />
                         <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" prefWidth="328.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\src\lottery_tickets.xsd" />
                   <TextField layoutX="58.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField layoutX="142.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
-                  <Label layoutX="13.0" layoutY="104.0" text="Label" />
+                  <Label layoutX="13.0" layoutY="104.0" text="%label.text.current.number" />
                   <TextField layoutX="101.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField layoutX="186.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField layoutX="16.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
-                  <Label layoutX="13.0" layoutY="160.0" text="Label" />
+                  <Label layoutX="13.0" layoutY="160.0" text="%label.text.current.starnumber" />
                   <TextField layoutX="16.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField layoutX="49.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
-                  <Label layoutX="13.0" layoutY="215.0" text="Label" />
+                  <Label layoutX="13.0" layoutY="215.0" text="%label.text.current.superstarnumber" />
                   <TextField layoutX="14.0" layoutY="231.0" prefHeight="26.0" prefWidth="60.0" />
                     </children>
                 </AnchorPane>
@@ -86,7 +64,10 @@
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.view" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <Label layoutX="20.0" layoutY="55.0" text="Label" /><ComboBox layoutX="124.0" layoutY="37.0" prefHeight="26.0" prefWidth="296.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" /><TabPane layoutX="14.0" layoutY="102.0" prefHeight="435.0" prefWidth="45.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="102.0">
+                              <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\lottery_tickets_sample.xml" />
+                              <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" />
+                              <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
+                        <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketnumber" /><ComboBox layoutX="170.0" layoutY="135.0" prefHeight="26.0" prefWidth="96.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="135.0" /><TabPane layoutX="14.0" layoutY="102.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="170.0">
   <tabs>
     <Tab text="Play 1" />
     <Tab text="Play 2" />
@@ -97,25 +78,19 @@
 <Tab text="Play 7" />
   </tabs>
 </TabPane>
-                        <Label layoutX="73.0" layoutY="102.0" text="Label" />
-                        <TextField layoutX="73.0" layoutY="118.0" />
-                        <Label layoutX="73.0" layoutY="162.0" text="Label" />
-                        <TextField layoutX="73.0" layoutY="178.0" />
-                        <Label layoutX="73.0" layoutY="223.0" text="Label" />
-                        <TextField layoutX="73.0" layoutY="239.0" />
-                        <Label layoutX="73.0" layoutY="282.0" text="Label" />
-                        <TextField layoutX="73.0" layoutY="307.0" prefHeight="26.0" prefWidth="28.0" />
-                        <TextField layoutX="110.0" layoutY="307.0" prefHeight="26.0" prefWidth="28.0" />
-                        <TextField layoutX="149.0" layoutY="307.0" prefHeight="26.0" prefWidth="28.0" />
-                        <TextField layoutX="187.0" layoutY="307.0" prefHeight="26.0" prefWidth="28.0" />
-                        <TextField layoutX="224.0" layoutY="307.0" prefHeight="26.0" prefWidth="28.0" />
-                        <Label layoutX="73.0" layoutY="354.0" text="Label" />
-                        <TextField layoutX="73.0" layoutY="370.0" prefHeight="26.0" prefWidth="28.0" />
-                        <TextField layoutX="110.0" layoutY="370.0" prefHeight="26.0" prefWidth="28.0" />
-                        <Label layoutX="73.0" layoutY="411.0" text="Label" />
-                        <TextField layoutX="76.0" layoutY="435.0" prefHeight="26.0" prefWidth="60.0" />
-                        <TextField layoutX="147.0" layoutY="435.0" prefHeight="26.0" prefWidth="60.0" />
-                        <TextField layoutX="222.0" layoutY="435.0" prefHeight="26.0" prefWidth="60.0" />
+                        <Label layoutX="72.0" layoutY="170.0" text="%label.text.number" />
+                        <TextField layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                        <TextField layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                        <TextField layoutX="148.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                        <TextField layoutX="186.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                        <TextField layoutX="223.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                        <Label layoutX="72.0" layoutY="242.0" text="%label.text.starnumber" />
+                        <TextField layoutX="72.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
+                        <TextField layoutX="109.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
+                        <Label layoutX="72.0" layoutY="299.0" text="%label.text.superstarnumber" />
+                        <TextField layoutX="75.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                        <TextField layoutX="146.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                        <TextField layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -123,6 +98,12 @@
                 <AnchorPane>
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <Label layoutX="14.0" layoutY="93.0" text="%label.text.result.validnumbers" />
+                  <TextField layoutX="17.0" layoutY="116.0" />
+                  <Label layoutX="17.0" layoutY="168.0" text="%label.text.result.validstarnumbers" />
+                  <TextField layoutX="17.0" layoutY="193.0" />
+                  <Label layoutX="14.0" layoutY="237.0" text="%label.text.result.validsuperstarnumbers" />
+                  <TextField layoutX="17.0" layoutY="275.0" />
                     </children>
                 </AnchorPane>
             </items>
