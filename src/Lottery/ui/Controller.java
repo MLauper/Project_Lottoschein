@@ -79,7 +79,7 @@ public class Controller {
         Bindings.bindBidirectional(propertyWinningNo1, winningNo1.textProperty());
         xmlPath.bind(txtXMLPath.textProperty());
 
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             winningNumbers.add(i, new SimpleStringProperty());
         }
         Bindings.bindBidirectional(winningNumbers.get(0), txtWinningNo1.textProperty());
