@@ -1,35 +1,23 @@
 package Lottery.ui;
 
+import Lottery.LotteryDrawing;
+import Lottery.WinningType;
 import Lottery.jaxb.LotteryTicketsType;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import org.controlsfx.control.action.Action;
-import org.xml.sax.SAXException;
 
-import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Vector;
-
 
 public class Controller {
 
@@ -39,55 +27,39 @@ public class Controller {
     StringProperty xmlPath = new SimpleStringProperty();
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
-
+    LotteryDrawing lotteryDrawing;
     @FXML
     private TextField txtWinningStarNo2;
-
     @FXML
     private TextField txtWinningStarNo1;
-
     @FXML
     private TextField txtXMLPath;
-
     @FXML
     private TextField winningNo1;
-
     @FXML
     private TextField txtWinningSuperStar;
-
     @FXML
     private Button button;
-
     @FXML
     private TextField txtXSDPath;
-
     @FXML
     private TextField txtWinningNo5;
-
     @FXML
     private TextField txtWinningNo3;
-
     @FXML
     private TextField txtWinningNo4;
-
     @FXML
     private TextField txtWinningNo1;
-
     @FXML
     private TextField txtWinningNo2;
-
     @FXML
     private Font x1;
-
     @FXML
     private Color x2;
-
     @FXML
     private Font x3;
-
     @FXML
     private Color x4;
-
     private Vector<StringProperty> winningNumbers = new Vector<StringProperty>(5);
     private Vector<StringProperty> winningStarNumbers = new Vector<StringProperty>(2);
     private StringProperty winningSuperStarNumber = new SimpleStringProperty();
@@ -115,12 +87,29 @@ public class Controller {
         Bindings.bindBidirectional(winningNumbers.get(2), txtWinningNo3.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(3), txtWinningNo4.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(4), txtWinningNo5.textProperty());
+        //Setting sample initial values:
+        winningNumbers.get(0).setValue("1");
+        winningNumbers.get(1).setValue("2");
+        winningNumbers.get(2).setValue("3");
+        winningNumbers.get(3).setValue("4");
+        winningNumbers.get(4).setValue("5");
+
+
+        winningStarNumbers.add(new SimpleStringProperty());
+        winningStarNumbers.add(new SimpleStringProperty());
+        Bindings.bindBidirectional(winningStarNumbers.get(0), txtWinningStarNo1.textProperty());
+        Bindings.bindBidirectional(winningStarNumbers.get(1), txtWinningStarNo2.textProperty());
+        //Setting sample initial values:
+        winningStarNumbers.get(0).setValue("6");
+        winningStarNumbers.get(1).setValue("7");
+
+        Bindings.bindBidirectional(winningSuperStarNumber, txtWinningSuperStar.textProperty());
+        //Setting sample initial value:
+        winningSuperStarNumber.setValue("fooba");
+
+        lotteryDrawing = new LotteryDrawing();
 
     }
-
-
-
-
 
     @FXML
     void button_clicked(ActionEvent event) {
@@ -130,38 +119,30 @@ public class Controller {
 
     @FXML
     void btnLoadXMLClicked(ActionEvent event) {
-        log("btnLoadXMLClicked");
-        log("Path: " + xmlPath.getValue());
+        System.out.println(new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
+        System.out.println(lotteryDrawing);
+        lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\","\\\\")));
+        ArrayList<Integer> winningNumbersInt = new ArrayList<Integer>();
+        for (StringProperty w : winningNumbers){
+            winningNumbersInt.add(Integer.decode(w.getValue()));
+        }
+        lotteryDrawing.setWinningNo(winningNumbersInt);
+        ArrayList<Integer> winningStarNumbersInt = new ArrayList<Integer>();
+        for (StringProperty w : winningStarNumbers){
+            winningStarNumbersInt.add(Integer.decode(w.getValue()));
+        }
+        lotteryDrawing.setWinningStarNo(winningStarNumbersInt);
+        String winningSuperStarNumberString = winningSuperStarNumber.getValue();
+        lotteryDrawing.setWinningSuperStar(winningSuperStarNumberString);
 
-        if (!validateXML()) {
-            log("XML not Valid!");
-            Action response = org.controlsfx.dialog.Dialogs.create()
-                    .owner(null)
-                    .title("Test")
-                    .masthead("just ...")
-                    .message("Testmessage...")
-                    .showConfirm();
+        lotteryDrawing.loadXML(new File(txtXMLPath.getText()));
 
-            return;
+        HashMap<WinningType, Integer> winners = lotteryDrawing.evaluateWinners();
+
+        for (WinningType winningType : WinningType.values()){
+            System.out.println(winningType.toString() + " has " + winners.get(winningType) + " winners");
         }
 
-        try {
-            File file = new File(xmlPath.getValue());
-            Source source = new StreamSource(file);
-
-            JAXBContext jaxbContext = JAXBContext.newInstance("Lottery");
-
-            Unmarshaller um = jaxbContext.createUnmarshaller();
-
-            JAXBElement<LotteryTicketsType> root = um.unmarshal(source, LotteryTicketsType.class);
-            lotteryTicketsRootElement = root.getValue();
-
-            log(String.valueOf(lotteryTicketsRootElement.getLotteryTicket().get(0).getIdentifier()));
-        } catch (
-                JAXBException e
-                ) {
-            e.printStackTrace();
-        }
     }
 
     private void log(String message) {
@@ -169,24 +150,6 @@ public class Controller {
             System.out.println("JavaFX Controller: " + message);
         }
     }
-
-    private boolean validateXML() {
-        try {
-            SchemaFactory factory =
-                    SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = factory.newSchema(new File(txtXSDPath.getText()));
-            Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(new File(txtXMLPath.getText())));
-        } catch (SAXException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
 
 }
 

@@ -1,14 +1,11 @@
 package Lottery;
 
-import Lottery.jaxb.LotteryTicketsType;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Marco on 30.05.2014.
@@ -16,33 +13,40 @@ import java.io.File;
 public class main_test {
 
     public static void main(String[] args) {
+        LotteryDrawing lotteryDrawing = new LotteryDrawing(new File("lottery_tickets_sample.xml"), new File("C:\\Users\\Marco\\IdeaProjects\\Project_Lottoschein\\src\\Lottery\\jaxb\\lottery_tickets.xsd"));
+        lotteryDrawing.setValidationXSD(new File("C:\\Users\\Marco\\IdeaProjects\\Project_Lottoschein\\src\\Lottery\\jaxb\\lottery_tickets.xsd"));
 
+        ArrayList<StringProperty> winningNo = new ArrayList<StringProperty>();
+        winningNo.add(new SimpleStringProperty("3"));
+        winningNo.add(new SimpleStringProperty("4"));
+        winningNo.add(new SimpleStringProperty("5"));
+        winningNo.add(new SimpleStringProperty("6"));
+        winningNo.add(new SimpleStringProperty("7"));
 
-        try {
-
-            File file = new File("lottery_tickets_sample.xml");
-            Source source = new StreamSource(file);
-
-
-            JAXBContext jaxbContext = JAXBContext.newInstance("Lottery");
-
-            Unmarshaller um = jaxbContext.createUnmarshaller();
-
-            JAXBElement<LotteryTicketsType> root = um.unmarshal(source, LotteryTicketsType.class);
-            LotteryTicketsType lotteryTicketsType = root.getValue();
-
-            //LotteryTicketType lotteryTicketsType =  (LotteryTicketType) um.unmarshal(file);
-
-            System.out.println(lotteryTicketsType.getLotteryTicket().get(0).getIdentifier());
-
-        } catch (
-                JAXBException e
-                )
-
-        {
-            e.printStackTrace();
+        ArrayList<Integer> winningNoInt = new ArrayList<Integer>();
+        for (StringProperty winning : winningNo) {
+            winningNoInt.add(Integer.decode(winning.getValue()));
         }
-    }
 
+        ArrayList<Integer> winningStarNoInt = new ArrayList<Integer>();
+        winningStarNoInt.add(2);
+        winningStarNoInt.add(3);
+        winningStarNoInt.add(4);
+
+        lotteryDrawing.setWinningNo(winningNoInt);
+        lotteryDrawing.setWinningStarNo(winningStarNoInt);
+        lotteryDrawing.setWinningSuperStar("fooba");
+
+        System.out.println(lotteryDrawing);
+
+        HashMap<WinningType, Integer> winners = lotteryDrawing.evaluateWinners();
+
+        for (WinningType winningType : WinningType.values()){
+            System.out.println(winningType.toString() + " has " + winners.get(winningType) + " winners");
+        }
+
+        new LotteryDrawing();
+
+    }
 
 }

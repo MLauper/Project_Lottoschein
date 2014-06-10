@@ -5,11 +5,11 @@
     <!--1 to 7 repetitions:-->
     <play>
       <lottery_numbers>
-        <lottery_number>3</lottery_number>
-        <lottery_number>4</lottery_number>
-        <lottery_number>5</lottery_number>
-        <lottery_number>6</lottery_number>
-        <lottery_number>7</lottery_number>
+        <lottery_number>1</lottery_number>
+        <lottery_number>2</lottery_number>
+        <lottery_number>8</lottery_number>
+        <lottery_number>9</lottery_number>
+        <lottery_number>12</lottery_number>
       </lottery_numbers>
       <star_numbers>
         <star_number>8</star_number>
@@ -17,7 +17,7 @@
       </star_numbers>
       <super_star_numbers>
         <!--1 to 4 repetitions:-->
-        <super_star>string</super_star>
+        <super_star>fogba</super_star>
       </super_star_numbers>
     </play>
     <nbr_of_valid_drawings>6</nbr_of_valid_drawings>

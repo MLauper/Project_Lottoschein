@@ -45,7 +45,7 @@
                         <TextField fx:id="winningNo1" layoutX="75.0" layoutY="397.0" prefHeight="25.0" prefWidth="28.0" />
                         <Button fx:id="button" layoutX="115.0" layoutY="397.0" mnemonicParsing="false" onAction="#button_clicked" text="Button" />
                         <Label layoutX="19.0" layoutY="45.0" text="%label.text.xsdfile" />
-                        <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\src\lottery_tickets.xsd" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
+                        <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" text="C:\Users\Marco\IdeaProjects\Project_Lottoschein\src\Lottery\jaxb\lottery_tickets.xsd" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
                   <TextField fx:id="txtWinningNo2" layoutX="58.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <TextField fx:id="txtWinningNo4" layoutX="142.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="13.0" layoutY="104.0" text="%label.text.current.number" />
@@ -64,7 +64,7 @@
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.lotterytickets" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                              <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\lottery_tickets_sample.xml" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
+                              <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\IdeaProjects\Project_Lottoschein\lottery_tickets_sample.xml" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
                               <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" />
                               <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
                         <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketnumber" />
