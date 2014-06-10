@@ -1,5 +1,5 @@
 
-package mypackage;
+package Lottery.jaxb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for StartNumbersType complex type.
+ * <p>Java class for StarNumbersType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="StartNumbersType">
+ * &lt;complexType name="StarNumbersType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StartNumbersType", namespace = "http://www.leafit.ch/lottery_tickets/", propOrder = {
+@XmlType(name = "StarNumbersType", namespace = "http://www.leafit.ch/lottery_tickets/", propOrder = {
     "starNumber"
 })
-public class StartNumbersType {
+public class StarNumbersType {
 
     @XmlElement(name = "star_number", type = Integer.class)
     protected List<Integer> starNumber;

@@ -1,5 +1,5 @@
 
-package mypackage;
+package Lottery.jaxb;
 
 import java.util.ArrayList;
 import java.util.List;

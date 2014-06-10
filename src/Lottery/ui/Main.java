@@ -1,4 +1,4 @@
-package mypackage.ui;
+package Lottery.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

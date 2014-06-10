@@ -22,7 +22,7 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
-package mypackage.ui;
+package Lottery.ui;
 
 
 import com.sun.javafx.css.StyleManager;
@@ -62,9 +62,9 @@ import java.security.PrivilegedExceptionAction;
 import java.text.MessageFormat;
 import java.util.*;
 
-import static mypackage.ui.Dialogs.DialogResources.*;
-import static mypackage.ui.Dialogs.DialogResponse.CLOSED;
-import static mypackage.ui.Dialogs.DialogResponse.OK;
+import static Lottery.ui.Dialogs.DialogResources.*;
+import static Lottery.ui.Dialogs.DialogResponse.CLOSED;
+import static Lottery.ui.Dialogs.DialogResponse.OK;
 
 /**
  * A class containing a number of pre-built JavaFX modal dialogs.

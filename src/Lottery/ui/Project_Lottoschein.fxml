@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mypackage.ui.Controller">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lottery.ui.Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -46,17 +46,17 @@
                         <Button fx:id="button" layoutX="115.0" layoutY="397.0" mnemonicParsing="false" onAction="#button_clicked" text="Button" />
                         <Label layoutX="19.0" layoutY="45.0" text="%label.text.xsdfile" />
                         <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" text="C:\Users\Marco\Downloads\Project_Lottoschein\src\lottery_tickets.xsd" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
-                  <TextField layoutX="58.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="142.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo2" layoutX="58.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo4" layoutX="142.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="13.0" layoutY="104.0" text="%label.text.current.number" />
-                  <TextField layoutX="101.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="186.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="16.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo3" layoutX="101.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo5" layoutX="186.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo1" layoutX="16.0" layoutY="127.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="13.0" layoutY="160.0" text="%label.text.current.starnumber" />
-                  <TextField layoutX="16.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="49.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningStarNo1" layoutX="16.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningStarNo2" layoutX="49.0" layoutY="176.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="13.0" layoutY="215.0" text="%label.text.current.superstarnumber" />
-                  <TextField layoutX="14.0" layoutY="231.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtWinningSuperStar" layoutX="14.0" layoutY="231.0" prefHeight="26.0" prefWidth="60.0" />
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">

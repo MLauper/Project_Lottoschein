@@ -1,4 +1,6 @@
-package mypackage;
+package Lottery;
+
+import Lottery.jaxb.LotteryTicketsType;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -22,7 +24,7 @@ public class main_test {
             Source source = new StreamSource(file);
 
 
-            JAXBContext jaxbContext = JAXBContext.newInstance("mypackage");
+            JAXBContext jaxbContext = JAXBContext.newInstance("Lottery");
 
             Unmarshaller um = jaxbContext.createUnmarshaller();
 

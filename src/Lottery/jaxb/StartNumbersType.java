@@ -1,5 +1,5 @@
 
-package mypackage;
+package Lottery.jaxb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for LotteryTicketsType complex type.
+ * <p>Java class for StartNumbersType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="LotteryTicketsType">
+ * &lt;complexType name="StartNumbersType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="lottery_ticket" type="{http://www.leafit.ch/lottery_tickets/}LotteryTicketType" maxOccurs="unbounded"/>
+ *         &lt;element name="star_number" type="{http://www.leafit.ch/lottery_tickets/}StarNumberSelectionType" maxOccurs="2" minOccurs="2"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,41 +29,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LotteryTicketsType", namespace = "http://www.leafit.ch/lottery_tickets/", propOrder = {
-    "lotteryTicket"
+@XmlType(name = "StartNumbersType", namespace = "http://www.leafit.ch/lottery_tickets/", propOrder = {
+    "starNumber"
 })
-public class LotteryTicketsType {
+public class StartNumbersType {
 
-    @XmlElement(name = "lottery_ticket", required = true)
-    protected List<LotteryTicketType> lotteryTicket;
+    @XmlElement(name = "star_number", type = Integer.class)
+    protected List<Integer> starNumber;
 
     /**
-     * Gets the value of the lotteryTicket property.
+     * Gets the value of the starNumber property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the lotteryTicket property.
+     * This is why there is not a <CODE>set</CODE> method for the starNumber property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getLotteryTicket().add(newItem);
+     *    getStarNumber().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link LotteryTicketType }
+     * {@link Integer }
      * 
      * 
      */
-    public List<LotteryTicketType> getLotteryTicket() {
-        if (lotteryTicket == null) {
-            lotteryTicket = new ArrayList<LotteryTicketType>();
+    public List<Integer> getStarNumber() {
+        if (starNumber == null) {
+            starNumber = new ArrayList<Integer>();
         }
-        return this.lotteryTicket;
+        return this.starNumber;
     }
 
 }

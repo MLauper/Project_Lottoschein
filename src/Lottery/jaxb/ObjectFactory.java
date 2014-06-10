@@ -1,5 +1,5 @@
 
-package mypackage;
+package Lottery.jaxb;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

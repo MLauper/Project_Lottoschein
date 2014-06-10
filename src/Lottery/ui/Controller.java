@@ -1,16 +1,18 @@
-package mypackage.ui;
+package Lottery.ui;
 
+import Lottery.jaxb.LotteryTicketsType;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import mypackage.LotteryTicketsType;
+import javafx.stage.WindowEvent;
 import org.controlsfx.control.action.Action;
 import org.xml.sax.SAXException;
 
@@ -26,6 +28,7 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 
 
 public class Controller {
@@ -36,22 +39,58 @@ public class Controller {
     StringProperty xmlPath = new SimpleStringProperty();
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
+
     @FXML
-    private Font x1;
+    private TextField txtWinningStarNo2;
+
     @FXML
-    private Color x2;
-    @FXML
-    private Font x3;
-    @FXML
-    private Color x4;
-    @FXML
-    private Button button;
-    @FXML
-    private TextField winningNo1;
+    private TextField txtWinningStarNo1;
+
     @FXML
     private TextField txtXMLPath;
+
+    @FXML
+    private TextField winningNo1;
+
+    @FXML
+    private TextField txtWinningSuperStar;
+
+    @FXML
+    private Button button;
+
     @FXML
     private TextField txtXSDPath;
+
+    @FXML
+    private TextField txtWinningNo5;
+
+    @FXML
+    private TextField txtWinningNo3;
+
+    @FXML
+    private TextField txtWinningNo4;
+
+    @FXML
+    private TextField txtWinningNo1;
+
+    @FXML
+    private TextField txtWinningNo2;
+
+    @FXML
+    private Font x1;
+
+    @FXML
+    private Color x2;
+
+    @FXML
+    private Font x3;
+
+    @FXML
+    private Color x4;
+
+    private Vector<StringProperty> winningNumbers = new Vector<StringProperty>(5);
+    private Vector<StringProperty> winningStarNumbers = new Vector<StringProperty>(2);
+    private StringProperty winningSuperStarNumber = new SimpleStringProperty();
 
     public static void setPrimaryStage(Stage primaryStage) {
         Controller.primaryStage = primaryStage;
@@ -68,8 +107,20 @@ public class Controller {
         Bindings.bindBidirectional(propertyWinningNo1, winningNo1.textProperty());
         xmlPath.bind(txtXMLPath.textProperty());
 
+        for (int i = 0; i <= 5; i++) {
+            winningNumbers.add(i, new SimpleStringProperty());
+        }
+        Bindings.bindBidirectional(winningNumbers.get(0), txtWinningNo1.textProperty());
+        Bindings.bindBidirectional(winningNumbers.get(1), txtWinningNo2.textProperty());
+        Bindings.bindBidirectional(winningNumbers.get(2), txtWinningNo3.textProperty());
+        Bindings.bindBidirectional(winningNumbers.get(3), txtWinningNo4.textProperty());
+        Bindings.bindBidirectional(winningNumbers.get(4), txtWinningNo5.textProperty());
 
     }
+
+
+
+
 
     @FXML
     void button_clicked(ActionEvent event) {
@@ -98,7 +149,7 @@ public class Controller {
             File file = new File(xmlPath.getValue());
             Source source = new StreamSource(file);
 
-            JAXBContext jaxbContext = JAXBContext.newInstance("mypackage");
+            JAXBContext jaxbContext = JAXBContext.newInstance("Lottery");
 
             Unmarshaller um = jaxbContext.createUnmarshaller();
 
