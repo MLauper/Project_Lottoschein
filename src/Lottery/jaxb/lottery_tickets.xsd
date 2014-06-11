@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<schema xmlns:tns="http://www.leafit.ch/lottery_tickets/"
-        targetNamespace="http://www.leafit.ch/lottery_tickets/"
-        xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="http://www.leafit.ch/lottery_tickets/"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.leafit.ch/lottery_tickets/">
 
     <element name="lottery_tickets" type="tns:LotteryTicketsType">
         <unique name="uniqueConstrIdent">
-            <selector xpath="lottery_ticket/identifier"/>
-            <field xpath="."/>
+            <selector xpath="lottery_ticket/identifier" />
+            <field xpath="." />
         </unique>
     </element>
 
@@ -27,23 +27,23 @@
             <element name="lottery_numbers"
                      type="tns:NumberDrawingType" maxOccurs="1" minOccurs="1">
                 <unique name="uniqueConstrLotteryNumber">
-                    <selector xpath="lottery_number"/>
-                    <field xpath="."/>
+                    <selector xpath="lottery_number" />
+                    <field xpath="." />
                 </unique>
             </element>
             <element name="star_numbers" type="tns:StarNumbersType" maxOccurs="1" minOccurs="1">
                 <unique name="uniqueConstrStarNumber">
-                    <selector xpath="star_number"/>
-                    <field xpath="."/>
+                    <selector xpath="star_number" />
+                    <field xpath="." />
                 </unique>
             </element>
-            <element name="super_star_numbers" type="tns:SuperStarType" maxOccurs="1" minOccurs="1"></element>
+            <element name="super_star_numbers" type="tns:SuperStarType" maxOccurs="1" minOccurs="1"> </element>
         </sequence>
     </complexType>
 
     <complexType name="NumberDrawingType">
         <sequence>
-            <element name="lottery_number" type="tns:LotteryNumbersSelectionType" maxOccurs="5" minOccurs="5"></element>
+            <element name="lottery_number" type="tns:LotteryNumbersSelectionType" maxOccurs="5" minOccurs="5"> </element>
         </sequence>
     </complexType>
 
@@ -78,13 +78,13 @@
 
     <complexType name="StartNumbersType">
         <sequence>
-            <element name="star_number" type="tns:StarNumberSelectionType" maxOccurs="2" minOccurs="2"></element>
+            <element name="star_number" type="tns:StarNumberSelectionType" maxOccurs="2" minOccurs="2"> </element>
         </sequence>
     </complexType>
 
     <complexType name="StarNumbersType">
         <sequence>
-            <element name="star_number" type="tns:StarNumberSelectionType" maxOccurs="2" minOccurs="2"></element>
+            <element name="star_number" type="tns:StarNumberSelectionType" maxOccurs="2" minOccurs="2"> </element>
         </sequence>
     </complexType>
 
@@ -97,9 +97,8 @@
     <complexType name="LotteryTicketType">
         <sequence>
             <element name="identifier" type="int" maxOccurs="1" minOccurs="1"></element>
-            <element name="play" type="tns:PlayType" maxOccurs="7" minOccurs="1"></element>
-            <element name="nbr_of_valid_drawings" type="tns:DrawingsSelectionType" maxOccurs="1"
-                     minOccurs="1"></element>
+            <element name="play" type="tns:PlayType" maxOccurs="7" minOccurs="1"> </element>
+            <element name="nbr_of_valid_drawings" type="tns:DrawingsSelectionType" maxOccurs="1" minOccurs="1"></element>
         </sequence>
         <attribute name="drawing_date" type="date"></attribute>
     </complexType>
