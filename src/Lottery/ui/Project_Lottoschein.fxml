@@ -67,17 +67,17 @@
                               <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" text="C:\Users\Marco\IdeaProjects\Project_Lottoschein\lottery_tickets_sample.xml" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0" />
                               <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" />
                               <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
-                        <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketnumber" />
+                        <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketid" />
                         <ComboBox layoutX="170.0" layoutY="135.0" prefHeight="26.0" prefWidth="96.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="135.0" />
                         <TabPane layoutX="14.0" layoutY="102.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="170.0">
       <tabs>
-      <Tab text="Play 1" />
-      <Tab text="Play 2" />
-      <Tab text="Play 3" />
-      <Tab text="Play 4" />
-      <Tab text="Play 5" />
-      <Tab text="Play 6" />
-      <Tab text="Play 7" />
+      <Tab text="%tab.text.play1" />
+      <Tab text="%tab.text.play2" />
+      <Tab text="%tab.text.play3" />
+      <Tab text="%tab.text.play4" />
+      <Tab text="%tab.text.play5" />
+      <Tab text="%tab.text.play6" />
+      <Tab text="%tab.text.play7" />
       </tabs>
       </TabPane>
                         <Label layoutX="72.0" layoutY="170.0" text="%label.text.number" />
