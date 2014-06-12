@@ -82,18 +82,20 @@
 </tabs>
 </TabPane>
                   <Label layoutX="72.0" layoutY="170.0" text="%label.text.number" />
-                  <TextField layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="148.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="186.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="223.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum1" layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum2" layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum3" layoutX="148.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum4" layoutX="186.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum5" layoutX="223.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="72.0" layoutY="242.0" text="%label.text.starnumber" />
-                  <TextField layoutX="72.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField layoutX="109.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtSNum1" layoutX="72.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtSNum2" layoutX="109.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="72.0" layoutY="299.0" text="%label.text.superstarnumber" />
-                  <TextField layoutX="75.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField layoutX="146.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum1" layoutX="75.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum2" layoutX="146.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum3" layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <Label layoutX="78.0" layoutY="457.0" text="%label.text.ticketquantity" />
+                  <TextField fx:id="txtTicketQuantity" layoutX="80.0" layoutY="481.0" prefHeight="26.0" prefWidth="60.0" />
                       </children>
                   </AnchorPane>
                 <AnchorPane>

@@ -2,6 +2,7 @@ package Lottery;
 
 import Lottery.jaxb.LotteryTicketType;
 import Lottery.jaxb.LotteryTicketsType;
+import Lottery.jaxb.NumberDrawingType;
 import Lottery.jaxb.PlayType;
 
 import javax.xml.XMLConstants;
@@ -14,9 +15,11 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Marco on 09.06.2014.
@@ -349,5 +352,31 @@ public class LotteryDrawing {
             winners.put(WinningType.FIVE_SUPER_STAR, winners.get(WinningType.FIVE_SUPER_STAR) + 1);
         }
 
+    }
+    public ArrayList<Integer> getTicketIDs(){
+    	ArrayList<Integer> ticketIDlist = new ArrayList<Integer>();
+        if (this.hasSingleXML) {
+        	ticketIDlist.add(lotteryTicketsType.getLotteryTicket().get(0).getIdentifier());
+        }
+        if (this.hasMultipleXML) {
+            for (LotteryTicketType t : lotteryTicketsType.getLotteryTicket()) {
+                ticketIDlist.add(t.getIdentifier());
+            }
+        }
+    	
+		return ticketIDlist;
+    	
+    }
+    public int getTicketQuantity(){    	
+		return this.getTicketIDs().size();
+    }
+    public List<Integer> getNumbers(int ticketId, int play){
+        if (this.hasSingleXML) {
+        	return lotteryTicketType.getPlay().get(play).getLotteryNumbers().getLotteryNumber();
+        }
+        if (this.hasMultipleXML) {
+        	return lotteryTicketsType.getLotteryTicket().get(ticketId).getPlay().get(play).getLotteryNumbers().getLotteryNumber();
+        }
+        return null;
     }
 }

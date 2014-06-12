@@ -31,6 +31,33 @@ public class Controller {
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
     LotteryDrawing lotteryDrawing;
+    
+    @FXML
+    private TextField txtTicketQuantity;
+    
+    @FXML
+    private TextField txtNum1;
+    @FXML
+    private TextField txtNum2;
+    @FXML
+    private TextField txtNum3;
+    @FXML
+    private TextField txtNum4;
+    @FXML
+    private TextField txtNum5;
+    
+    @FXML
+    private TextField txtSNum1;
+    @FXML
+    private TextField txtSNnum2;
+
+    
+    @FXML
+    private TextField txtSSNum1;
+    @FXML
+    private TextField txtSSNum2;
+    @FXML
+    private TextField txtSSNum3;
     @FXML
     private ComboBox<?> cboxTicketID;
     @FXML
@@ -94,6 +121,14 @@ public class Controller {
         Bindings.bindBidirectional(winningNumbers.get(2), txtWinningNo3.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(3), txtWinningNo4.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(4), txtWinningNo5.textProperty());
+        
+        winningStarNumbers.add(new SimpleStringProperty());
+        winningStarNumbers.add(new SimpleStringProperty());
+        Bindings.bindBidirectional(winningStarNumbers.get(0), txtWinningStarNo1.textProperty());
+        Bindings.bindBidirectional(winningStarNumbers.get(1), txtWinningStarNo2.textProperty());
+        
+        Bindings.bindBidirectional(winningSuperStarNumber, txtWinningSuperStar.textProperty());
+        
         //Setting sample initial values:
         winningNumbers.get(0).setValue("1");
         winningNumbers.get(1).setValue("2");
@@ -101,16 +136,10 @@ public class Controller {
         winningNumbers.get(3).setValue("4");
         winningNumbers.get(4).setValue("5");
 
-
-        winningStarNumbers.add(new SimpleStringProperty());
-        winningStarNumbers.add(new SimpleStringProperty());
-        Bindings.bindBidirectional(winningStarNumbers.get(0), txtWinningStarNo1.textProperty());
-        Bindings.bindBidirectional(winningStarNumbers.get(1), txtWinningStarNo2.textProperty());
         //Setting sample initial values:
         winningStarNumbers.get(0).setValue("6");
         winningStarNumbers.get(1).setValue("7");
 
-        Bindings.bindBidirectional(winningSuperStarNumber, txtWinningSuperStar.textProperty());
         //Setting sample initial value:
         winningSuperStarNumber.setValue("fooba");
 
@@ -157,6 +186,9 @@ public class Controller {
             txtOutput.appendText(winningType.getText() + " \t " + winners.get(winningType).toString() + " winners\n");
    
         }
+        System.out.println("Ticket IDs in XML: " + lotteryDrawing.getTicketIDs());
+        System.out.println(lotteryDrawing.getNumbers(0, 0));
+        txtTicketQuantity.setText(lotteryDrawing.getTicketQuantity()+"");
 
     }
     @FXML
