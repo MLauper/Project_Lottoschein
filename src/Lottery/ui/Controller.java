@@ -9,10 +9,12 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -29,6 +31,8 @@ public class Controller {
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
     LotteryDrawing lotteryDrawing;
+    @FXML
+    private ComboBox<?> cboxTicketID;
     @FXML
     private TextArea txtOutput;
     @FXML
@@ -157,7 +161,27 @@ public class Controller {
         }
 
     }
+    @FXML
+    void btnQuitClicked(ActionEvent event) {
+    	System.out.println("Terminating...");
+    	System.exit(0);
+    	
+    }
+    @FXML
+    void btnOpenXSD(ActionEvent event) {
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Open XSD File");
+    	txtXSDPath.setText(fileChooser.showOpenDialog(primaryStage).getAbsolutePath());
 
+    	
+    }
+    @FXML
+    void btnOpenXML(ActionEvent event) {
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Open XML File");
+    	txtXMLPath.setText(fileChooser.showOpenDialog(primaryStage).getAbsolutePath());
+    }
+    
     private void log(String message) {
         if (LOG) {
             System.out.println("JavaFX Controller: " + message);
