@@ -152,7 +152,7 @@ public class Controller {
 
         for (WinningType winningType : WinningType.values()){
             System.out.println(winningType.toString() + " has " + winners.get(winningType) + " winners");
-            txtOutput.appendText(winningType.toString() + " has " + winners.get(winningType).toString() + " winners\n");
+            txtOutput.appendText(winningType.getText() + " \t " + winners.get(winningType).toString() + " winners\n");
    
         }
 
