@@ -6,6 +6,8 @@ import Lottery.jaxb.LotteryTicketsType;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -59,7 +61,7 @@ public class Controller {
     @FXML
     private TextField txtSSNum3;
     @FXML
-    private ComboBox<?> cboxTicketID;
+    private ComboBox<Integer> cboxTicketID;
     @FXML
     private TextArea txtOutput;
     @FXML
@@ -186,9 +188,14 @@ public class Controller {
             txtOutput.appendText(winningType.getText() + " \t " + winners.get(winningType).toString() + " winners\n");
    
         }
-        System.out.println("Ticket IDs in XML: " + lotteryDrawing.getTicketIDs());
+        System.out.println("List of TicketIDs in XML: " + lotteryDrawing.getTicketIDs());
+        
         System.out.println(lotteryDrawing.getNumbers(0, 0));
+        
         txtTicketQuantity.setText(lotteryDrawing.getTicketQuantity()+"");
+        
+        ObservableList<Integer> ticketselector = FXCollections.observableArrayList(lotteryDrawing.getTicketIDs());
+        cboxTicketID.getItems().addAll(ticketselector);
 
     }
     @FXML
@@ -226,6 +233,11 @@ public class Controller {
     void btnClearOutputClicked(ActionEvent event) {
     	txtOutput.clear();
     }
+    @FXML
+    void cboxTicketIDSelected(ActionEvent event) {
+    	System.out.println("Selected Ticket ID:" +cboxTicketID.getValue());
+    }
+    
     private void log(String message) {
         if (LOG) {
             System.out.println("JavaFX Controller: " + message);
