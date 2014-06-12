@@ -127,15 +127,8 @@ public class Controller {
     @FXML
     void btnLoadXMLClicked(ActionEvent event) {
     	txtOutput.clear();
-        System.out.println(new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
-        if(new File(txtXSDPath.getText().replace("\\","\\\\")).canRead())
-        	txtOutput.appendText("canRead() => true\n\n");
-        else
-        	txtOutput.appendText("canRead() => false\n\n");
-        
-        System.out.println(lotteryDrawing);
-        txtOutput.appendText(lotteryDrawing.toString()+"\n\n");
-        
+        System.out.println("XSD is readable: "+new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
+             
         lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\","\\\\")));
         ArrayList<Integer> winningNumbersInt = new ArrayList<Integer>();
         for (StringProperty w : winningNumbers){
@@ -152,10 +145,15 @@ public class Controller {
 
         lotteryDrawing.loadXML(new File(txtXMLPath.getText()));
 
+        System.out.println(lotteryDrawing);
+        // log(lotteryDrawing.toString());
+        // txtOutput.appendText(lotteryDrawing.toString()+"\n\n");
+        
+        
         HashMap<WinningType, Integer> winners = lotteryDrawing.evaluateWinners();
 
         for (WinningType winningType : WinningType.values()){
-            System.out.println(winningType.toString() + " has " + winners.get(winningType) + " winners");
+            log(winningType.toString() + " has " + winners.get(winningType) + " winners");
             txtOutput.appendText(winningType.getText() + " \t " + winners.get(winningType).toString() + " winners\n");
    
         }
@@ -192,7 +190,10 @@ public class Controller {
 
 		}
     }
-    
+    @FXML
+    void btnClearOutputClicked(ActionEvent event) {
+    	txtOutput.clear();
+    }
     private void log(String message) {
         if (LOG) {
             System.out.println("JavaFX Controller: " + message);

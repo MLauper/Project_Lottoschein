@@ -32,7 +32,7 @@
         </MenuBar>
         <SplitPane dividerPositions="0.4, 0.7506" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
-                <AnchorPane prefHeight="551.0" prefWidth="329.0">
+                <AnchorPane prefWidth="329.0">
                     <children>
                         <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="%label.text.setup" textAlignment="CENTER" wrapText="false">
                             <font>
@@ -57,14 +57,14 @@
                   <TextField fx:id="txtWinningStarNo2" layoutX="48.0" layoutY="220.0" prefHeight="26.0" prefWidth="28.0" />
                   <Label layoutX="12.0" layoutY="259.0" text="%label.text.current.superstarnumber" />
                   <TextField fx:id="txtWinningSuperStar" layoutX="13.0" layoutY="275.0" prefHeight="26.0" prefWidth="60.0" />
-                  <Button layoutX="10.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnOpenXSD" text="%btn.txt.browse" AnchorPane.leftAnchor="10.0" />
+                  <Button layoutX="10.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnOpenXSD" text="%button.text.browse" AnchorPane.leftAnchor="10.0" />
                   <Label layoutX="19.0" layoutY="369.0" text="Testing Area" />
                     </children>
                 </AnchorPane>
-                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
+                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0">
                       <children>
                           <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.lotterytickets" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <Button layoutX="251.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnOpenXML" text="%btn.txt.browse" AnchorPane.leftAnchor="10.0" />
+                  <Button layoutX="251.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnOpenXML" text="%button.text.browse" AnchorPane.leftAnchor="10.0" />
                         <TextField fx:id="txtXMLPath" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="238.0" promptText="%txt.prompttext.path" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="67.0" />
                         <Button layoutX="356.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="93.0" />
                         <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
@@ -99,7 +99,8 @@
                 <AnchorPane>
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="%label.text.results" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <TextArea fx:id="txtOutput" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                  <TextArea fx:id="txtOutput" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
+                  <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnClearOutputClicked" text="%button.text.clear" AnchorPane.leftAnchor="10.0" />
                     </children>
                 </AnchorPane>
             </items>
