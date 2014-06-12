@@ -228,28 +228,19 @@ public class Controller {
     void btnRefresh(ActionEvent event) {
         int selectedTicket = cboxTicketID.getSelectionModel().getSelectedIndex();
         int selectedPlay = tabPanePlays.getSelectionModel().getSelectedIndex();
-
-        System.out.println("Selected Ticket Index: " + selectedTicket);
-        System.out.println("Selected Tab Index   : " + selectedPlay);
-        System.out.println("Numbers in List         : " + lotteryDrawing.getNumbers(selectedTicket, selectedPlay));
-        System.out.println("StarNumbers in List     : " + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay));
-        System.out.println("SuperStarNumbers in List: " + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay));
-        try {
-            txtNum1.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(0));
-            txtNum2.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(1));
-            txtNum3.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(2));
-            txtNum4.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(3));
-            txtNum5.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(4));
-
-            txtSNum1.setText("" + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(0));
-            txtSNum2.setText("" + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(1));
-
-            txtSSNum1.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));
-            txtSSNum2.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));
-            txtSSNum3.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));
-        } catch (Exception e) {
-
-        }
+    
+    	try{ txtNum1.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(0));}catch(Exception e){txtNum1.setText("-");}
+    	try{ txtNum2.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(1));}catch(Exception e){txtNum2.setText("-");}
+    	try{ txtNum3.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(2));}catch(Exception e){txtNum3.setText("-");}
+    	try{ txtNum4.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(3));}catch(Exception e){txtNum4.setText("-");}
+    	try{ txtNum5.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(4));}catch(Exception e){txtNum5.setText("-");}
+    	
+    	try{ txtSNum1.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(0));}catch(Exception e){txtSNum1.setText("-");}
+    	try{ txtSNum2.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(1));}catch(Exception e){txtSNum2.setText("-");}
+    	
+    	try{ txtSSNum1.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));}catch(Exception e){txtSSNum1.setText("-");}
+    	try{ txtSSNum2.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));}catch(Exception e){txtSSNum2.setText("-");}
+    	try{ txtSSNum3.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));}catch(Exception e){txtSSNum3.setText("-");}
     }
 
     private void log(String message) {
