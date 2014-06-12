@@ -96,7 +96,7 @@
                   <TextField fx:id="txtSSNum3" layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
                   <Label layoutX="78.0" layoutY="457.0" text="%label.text.ticketquantity" />
                   <TextField fx:id="txtTicketQuantity" layoutX="80.0" layoutY="481.0" prefHeight="26.0" prefWidth="60.0" />
-                  <Button layoutX="237.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnRefresh" text="get" />
+                  <Button layoutX="237.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnRefresh" text="%button.text.refresh" />
                       </children>
                   </AnchorPane>
                 <AnchorPane>
