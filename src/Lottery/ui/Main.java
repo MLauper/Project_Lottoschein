@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Project_Lottoschein.fxml"), ResourceBundle.getBundle("Project_Lottoschein", new Locale("de", "CH")));
         primaryStage.setTitle("Project_Lottoschein");
-        primaryStage.setScene(new Scene(root, 1000, 1000));
+        primaryStage.setScene(new Scene(root, 1200, 800));
         Controller.setPrimaryStage(primaryStage);
         primaryStage.show();
 

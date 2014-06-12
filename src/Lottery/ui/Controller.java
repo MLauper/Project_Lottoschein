@@ -171,7 +171,12 @@ public class Controller {
     void btnOpenXSD(ActionEvent event) {
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Open XSD File");
-    	txtXSDPath.setText(fileChooser.showOpenDialog(primaryStage).getAbsolutePath());
+		try {
+			txtXSDPath.setText(fileChooser.showOpenDialog(primaryStage)
+					.getAbsolutePath());
+		} catch (NullPointerException e) {
+
+		}
 
     	
     }
@@ -179,7 +184,13 @@ public class Controller {
     void btnOpenXML(ActionEvent event) {
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Open XML File");
-    	txtXMLPath.setText(fileChooser.showOpenDialog(primaryStage).getAbsolutePath());
+    	
+		try {
+			txtXMLPath.setText(fileChooser.showOpenDialog(primaryStage)
+					.getAbsolutePath());
+		} catch (NullPointerException e) {
+
+		}
     }
     
     private void log(String message) {
