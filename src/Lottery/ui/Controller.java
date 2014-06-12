@@ -9,6 +9,7 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,6 +29,8 @@ public class Controller {
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
     LotteryDrawing lotteryDrawing;
+    @FXML
+    private TextArea txtOutput;
     @FXML
     private TextField txtWinningStarNo2;
     @FXML
@@ -119,8 +122,16 @@ public class Controller {
 
     @FXML
     void btnLoadXMLClicked(ActionEvent event) {
+    	txtOutput.clear();
         System.out.println(new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
+        if(new File(txtXSDPath.getText().replace("\\","\\\\")).canRead())
+        	txtOutput.appendText("canRead() => true\n\n");
+        else
+        	txtOutput.appendText("canRead() => false\n\n");
+        
         System.out.println(lotteryDrawing);
+        txtOutput.appendText(lotteryDrawing.toString()+"\n\n");
+        
         lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\","\\\\")));
         ArrayList<Integer> winningNumbersInt = new ArrayList<Integer>();
         for (StringProperty w : winningNumbers){
@@ -141,6 +152,8 @@ public class Controller {
 
         for (WinningType winningType : WinningType.values()){
             System.out.println(winningType.toString() + " has " + winners.get(winningType) + " winners");
+            txtOutput.appendText(winningType.toString() + " has " + winners.get(winningType).toString() + " winners\n");
+   
         }
 
     }
