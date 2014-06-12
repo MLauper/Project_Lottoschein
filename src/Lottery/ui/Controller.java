@@ -60,6 +60,8 @@ public class Controller {
     @FXML
     private TextField txtSSNum3;
     @FXML
+    private TextField txtSSNum4;
+    @FXML
     private ComboBox<Integer> cboxTicketID;
     @FXML
     private TextArea txtOutput;
@@ -241,6 +243,7 @@ public class Controller {
     	try{ txtSSNum1.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));}catch(Exception e){txtSSNum1.setText("-");}
     	try{ txtSSNum2.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));}catch(Exception e){txtSSNum2.setText("-");}
     	try{ txtSSNum3.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));}catch(Exception e){txtSSNum3.setText("-");}
+    	try{ txtSSNum4.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));}catch(Exception e){txtSSNum4.setText("-");}
     }
 
     private void log(String message) {

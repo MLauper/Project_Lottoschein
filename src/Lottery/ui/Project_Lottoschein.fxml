@@ -44,17 +44,17 @@
                         </Label>
                         <Label layoutX="19.0" layoutY="45.0" text="%label.text.xsdfile" />
                         <TextField fx:id="txtXSDPath" layoutX="14.0" layoutY="67.0" prefHeight="26.0" promptText="%txt.prompttext.path" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="67.0" />
-                  <TextField fx:id="txtWinningNo2" layoutX="57.0" layoutY="171.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtWinningNo4" layoutX="141.0" layoutY="171.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo2" layoutX="52.0" layoutY="171.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtWinningNo4" layoutX="126.0" layoutY="171.0" prefHeight="26.0" prefWidth="36.0" />
                   <Label layoutX="12.0" layoutY="148.0" text="%label.text.current.number" />
-                  <TextField fx:id="txtWinningNo3" layoutX="100.0" layoutY="171.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtWinningNo5" layoutX="185.0" layoutY="171.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtWinningNo1" layoutX="15.0" layoutY="171.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningNo3" layoutX="89.0" layoutY="171.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtWinningNo5" layoutX="163.0" layoutY="171.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtWinningNo1" layoutX="15.0" layoutY="171.0" prefHeight="26.0" prefWidth="36.0" />
                   <Label layoutX="12.0" layoutY="204.0" text="%label.text.current.starnumber" />
-                  <TextField fx:id="txtWinningStarNo1" layoutX="15.0" layoutY="220.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtWinningStarNo2" layoutX="48.0" layoutY="220.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtWinningStarNo1" layoutX="15.0" layoutY="220.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtWinningStarNo2" layoutX="52.0" layoutY="220.0" prefHeight="26.0" prefWidth="36.0" />
                   <Label layoutX="12.0" layoutY="259.0" text="%label.text.current.superstarnumber" />
-                  <TextField fx:id="txtWinningSuperStar" layoutX="13.0" layoutY="275.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtWinningSuperStar" layoutX="15.0" layoutY="275.0" prefHeight="26.0" prefWidth="60.0" />
                   <Button layoutX="10.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnOpenXSD" text="%button.text.browse" AnchorPane.leftAnchor="10.0" />
                     </children>
                 </AnchorPane>
@@ -79,21 +79,22 @@
 </tabs>
 </TabPane>
                   <Label layoutX="72.0" layoutY="170.0" text="%label.text.number" />
-                  <TextField fx:id="txtNum1" layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtNum2" layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtNum3" layoutX="148.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtNum4" layoutX="186.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtNum5" layoutX="223.0" layoutY="195.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtNum1" editable="false" layoutX="72.0" layoutY="195.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtNum2" editable="false" layoutX="109.0" layoutY="195.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtNum3" editable="false" layoutX="146.0" layoutY="195.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtNum4" editable="false" layoutX="183.0" layoutY="195.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtNum5" editable="false" layoutX="220.0" layoutY="195.0" prefHeight="26.0" prefWidth="36.0" />
                   <Label layoutX="72.0" layoutY="242.0" text="%label.text.starnumber" />
-                  <TextField fx:id="txtSNum1" layoutX="72.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
-                  <TextField fx:id="txtSNum2" layoutX="109.0" layoutY="258.0" prefHeight="26.0" prefWidth="28.0" />
+                  <TextField fx:id="txtSNum1" editable="false" layoutX="72.0" layoutY="258.0" prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="txtSNum2" editable="false" layoutX="109.0" layoutY="258.0" prefHeight="26.0" prefWidth="36.0" />
                   <Label layoutX="72.0" layoutY="299.0" text="%label.text.superstarnumber" />
-                  <TextField fx:id="txtSSNum1" layoutX="75.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField fx:id="txtSSNum2" layoutX="146.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField fx:id="txtSSNum3" layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
-                  <Label layoutX="78.0" layoutY="457.0" text="%label.text.ticketquantity" />
-                  <TextField fx:id="txtTicketQuantity" layoutX="80.0" layoutY="481.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum1" editable="false" layoutX="72.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum2" editable="false" layoutX="133.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <TextField fx:id="txtSSNum3" editable="false" layoutX="194.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
+                  <Label layoutX="71.0" layoutY="457.0" text="%label.text.ticketquantity" />
+                  <TextField fx:id="txtTicketQuantity" editable="false" layoutX="72.0" layoutY="480.0" prefHeight="26.0" prefWidth="60.0" />
                   <Button layoutX="237.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnRefresh" text="%button.text.refresh" />
+                  <TextField fx:id="txtSSNum4" editable="false" layoutX="255.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
                       </children>
                   </AnchorPane>
                 <AnchorPane>
