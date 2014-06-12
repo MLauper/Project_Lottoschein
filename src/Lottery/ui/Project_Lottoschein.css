@@ -24,3 +24,7 @@
     -fx-border-width: 5;
     -fx-font-size: 16;
 }
+
+.result-area {
+    -fx-font-size: 20;
+}

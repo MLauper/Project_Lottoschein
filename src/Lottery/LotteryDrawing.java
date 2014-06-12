@@ -2,7 +2,6 @@ package Lottery;
 
 import Lottery.jaxb.LotteryTicketType;
 import Lottery.jaxb.LotteryTicketsType;
-import Lottery.jaxb.NumberDrawingType;
 import Lottery.jaxb.PlayType;
 
 import javax.xml.XMLConstants;
@@ -15,7 +14,6 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -363,11 +361,11 @@ public class LotteryDrawing {
                 ticketIDlist.add(t.getIdentifier());
             }
         }
-    	
+
 		return ticketIDlist;
-    	
+
     }
-    public int getTicketQuantity(){    	
+    public int getTicketQuantity(){
 		return this.getTicketIDs().size();
     }
     public List<Integer> getNumbers(int ticketId, int play){

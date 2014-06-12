@@ -1,23 +1,25 @@
-<lot:lottery_ticket xmlns:lot="http://www.leafit.ch/lottery_tickets/">
-    <!--1 or more repetitions:-->
-        <identifier>27</identifier>
-        <!--1 to 7 repetitions:-->
-        <play>
-            <lottery_numbers>
-                <lottery_number>3</lottery_number>
-                <lottery_number>4</lottery_number>
-                <lottery_number>5</lottery_number>
-                <lottery_number>6</lottery_number>
-                <lottery_number>7</lottery_number>
-            </lottery_numbers>
-            <star_numbers>
-                <star_number>8</star_number>
-                <star_number>9</star_number>
-            </star_numbers>
-            <super_star_numbers>
-                <!--1 to 4 repetitions:-->
-                <super_star>fefe</super_star>
-            </super_star_numbers>
-        </play>
-        <nbr_of_valid_drawings>6</nbr_of_valid_drawings>
-    </lot:lottery_ticket>
+<lot:lottery_tickets xmlns:lot="http://www.leafit.ch/lottery_tickets/">
+  <!--1 or more repetitions:-->
+  <lottery_ticket drawing_date="2008-09-29">
+    <identifier>27</identifier>
+    <!--1 to 7 repetitions:-->
+    <play>
+      <lottery_numbers>
+        <lottery_number>1</lottery_number>
+        <lottery_number>2</lottery_number>
+        <lottery_number>3</lottery_number>
+        <lottery_number>4</lottery_number>
+        <lottery_number>5</lottery_number>
+      </lottery_numbers>
+      <star_numbers>
+        <star_number>8</star_number>
+        <star_number>9</star_number>
+      </star_numbers>
+      <super_star_numbers>
+        <!--1 to 4 repetitions:-->
+        <super_star>fogba</super_star>
+      </super_star_numbers>
+    </play>
+    <nbr_of_valid_drawings>6</nbr_of_valid_drawings>
+  </lottery_ticket>
+</lot:lottery_tickets>

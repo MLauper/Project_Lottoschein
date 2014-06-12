@@ -10,18 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
@@ -32,16 +27,15 @@ public class Controller {
     private final boolean LOG = true;
     StringProperty propertyWinningNo1 = new SimpleStringProperty("1");
     StringProperty xmlPath = new SimpleStringProperty();
-    Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
     LotteryDrawing lotteryDrawing;
 
     @FXML
     private TabPane tabPanePlays;
-    
+
     @FXML
     private TextField txtTicketQuantity;
-    
+
     @FXML
     private TextField txtNum1;
     @FXML
@@ -52,13 +46,13 @@ public class Controller {
     private TextField txtNum4;
     @FXML
     private TextField txtNum5;
-    
+
     @FXML
     private TextField txtSNum1;
     @FXML
     private TextField txtSNum2;
 
-    
+
     @FXML
     private TextField txtSSNum1;
     @FXML
@@ -111,14 +105,6 @@ public class Controller {
 
     @FXML
     void initialize() {
-        assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'Project_Lottoschein.fxml'.";
-        assert x2 != null : "fx:id=\"x2\" was not injected: check your FXML file 'Project_Lottoschein.fxml'.";
-        assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'Project_Lottoschein.fxml'.";
-        assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'Project_Lottoschein.fxml'.";
-        assert winningNo1 != null : "fx:id=\"winningNo1\" was not injected: check your FXML file 'Project_Lottoschein.fxml'.";
-
-        Bindings.bindBidirectional(propertyWinningNo1, winningNo1.textProperty());
-        xmlPath.bind(txtXMLPath.textProperty());
 
         for (int i = 0; i < 5; i++) {
             winningNumbers.add(i, new SimpleStringProperty());
@@ -128,14 +114,14 @@ public class Controller {
         Bindings.bindBidirectional(winningNumbers.get(2), txtWinningNo3.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(3), txtWinningNo4.textProperty());
         Bindings.bindBidirectional(winningNumbers.get(4), txtWinningNo5.textProperty());
-        
+
         winningStarNumbers.add(new SimpleStringProperty());
         winningStarNumbers.add(new SimpleStringProperty());
         Bindings.bindBidirectional(winningStarNumbers.get(0), txtWinningStarNo1.textProperty());
         Bindings.bindBidirectional(winningStarNumbers.get(1), txtWinningStarNo2.textProperty());
-        
+
         Bindings.bindBidirectional(winningSuperStarNumber, txtWinningSuperStar.textProperty());
-        
+
         //Setting sample initial values:
         winningNumbers.get(0).setValue("1");
         winningNumbers.get(1).setValue("2");
@@ -155,25 +141,18 @@ public class Controller {
     }
 
     @FXML
-    void button_clicked(ActionEvent event) {
-        System.out.println("Value of propertyWinnignNo1 is " + propertyWinningNo1);
-
-    }
-
-    @FXML
     void btnLoadXMLClicked(ActionEvent event) {
-    	txtOutput.clear();
-    	cboxTicketID.getItems().clear();
-        System.out.println("XSD is readable: "+new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
-             
-        lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\","\\\\")));
+        txtOutput.clear();
+        cboxTicketID.getItems().clear();
+
+        lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\", "\\\\")));
         ArrayList<Integer> winningNumbersInt = new ArrayList<Integer>();
-        for (StringProperty w : winningNumbers){
+        for (StringProperty w : winningNumbers) {
             winningNumbersInt.add(Integer.decode(w.getValue()));
         }
         lotteryDrawing.setWinningNo(winningNumbersInt);
         ArrayList<Integer> winningStarNumbersInt = new ArrayList<Integer>();
-        for (StringProperty w : winningStarNumbers){
+        for (StringProperty w : winningStarNumbers) {
             winningStarNumbersInt.add(Integer.decode(w.getValue()));
         }
         lotteryDrawing.setWinningStarNo(winningStarNumbersInt);
@@ -185,89 +164,94 @@ public class Controller {
         System.out.println(lotteryDrawing);
         // log(lotteryDrawing.toString());
         // txtOutput.appendText(lotteryDrawing.toString()+"\n\n");
-        
-        
+
+
         HashMap<WinningType, Integer> winners = lotteryDrawing.evaluateWinners();
 
-        for (WinningType winningType : WinningType.values()){
+        for (WinningType winningType : WinningType.values()) {
             log(winningType.toString() + " has " + winners.get(winningType) + " winners");
             txtOutput.appendText(winningType.getText() + " \t " + winners.get(winningType).toString() + " winners\n");
-   
+
         }
         System.out.println("List of TicketIDs in XML: " + lotteryDrawing.getTicketIDs());
-        
+
         System.out.println(lotteryDrawing.getNumbers(0, 0));
-        
-        txtTicketQuantity.setText(lotteryDrawing.getTicketQuantity()+"");
-        
+
+        txtTicketQuantity.setText(lotteryDrawing.getTicketQuantity() + "");
+
         ObservableList<Integer> ticketselector = FXCollections.observableArrayList(lotteryDrawing.getTicketIDs());
         cboxTicketID.getItems().addAll(ticketselector);
         cboxTicketID.getSelectionModel().selectFirst();
 
     }
+
     @FXML
     void btnQuitClicked(ActionEvent event) {
-    	System.out.println("Terminating...");
-    	System.exit(0);
-    	
+        System.out.println("Terminating...");
+        System.exit(0);
+
     }
+
     @FXML
     void btnOpenXSD(ActionEvent event) {
-    	FileChooser fileChooser = new FileChooser();
-    	fileChooser.setTitle("Open XSD File");
-		try {
-			txtXSDPath.setText(fileChooser.showOpenDialog(primaryStage)
-					.getAbsolutePath());
-		} catch (NullPointerException e) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open XSD File");
+        try {
+            txtXSDPath.setText(fileChooser.showOpenDialog(primaryStage)
+                    .getAbsolutePath());
+        } catch (NullPointerException e) {
 
-		}
+        }
 
-    	
+
     }
+
     @FXML
     void btnOpenXML(ActionEvent event) {
-    	FileChooser fileChooser = new FileChooser();
-    	fileChooser.setTitle("Open XML File");
-    	
-		try {
-			txtXMLPath.setText(fileChooser.showOpenDialog(primaryStage)
-					.getAbsolutePath());
-		} catch (NullPointerException e) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open XML File");
 
-		}
+        try {
+            txtXMLPath.setText(fileChooser.showOpenDialog(primaryStage)
+                    .getAbsolutePath());
+        } catch (NullPointerException e) {
+
+        }
     }
+
     @FXML
     void btnClearOutputClicked(ActionEvent event) {
-    	txtOutput.clear();
+        txtOutput.clear();
     }
+
     @FXML
     void btnRefresh(ActionEvent event) {
-    	int selectedTicket = cboxTicketID.getSelectionModel().getSelectedIndex();
-    	int selectedPlay = tabPanePlays.getSelectionModel().getSelectedIndex();
-    	
-    	System.out.println("Selected Ticket Index: " +selectedTicket);
-    	System.out.println("Selected Tab Index   : " +selectedPlay);
-    	System.out.println("Numbers in List         : "+lotteryDrawing.getNumbers(selectedTicket, selectedPlay));
-    	System.out.println("StarNumbers in List     : "+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay));
-    	System.out.println("SuperStarNumbers in List: "+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay));
-    	try {
-	    	txtNum1.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(0));
-	    	txtNum2.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(1));
-	    	txtNum3.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(2));
-	    	txtNum4.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(3));
-	    	txtNum5.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(4));
-	    	
-	    	txtSNum1.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(0));
-	    	txtSNum2.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(1));
-	    	
-	    	txtSSNum1.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));
-	    	txtSSNum2.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));
-	    	txtSSNum3.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));
-    	}catch(Exception e){
-    		
-    	}
+        int selectedTicket = cboxTicketID.getSelectionModel().getSelectedIndex();
+        int selectedPlay = tabPanePlays.getSelectionModel().getSelectedIndex();
+
+        System.out.println("Selected Ticket Index: " + selectedTicket);
+        System.out.println("Selected Tab Index   : " + selectedPlay);
+        System.out.println("Numbers in List         : " + lotteryDrawing.getNumbers(selectedTicket, selectedPlay));
+        System.out.println("StarNumbers in List     : " + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay));
+        System.out.println("SuperStarNumbers in List: " + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay));
+        try {
+            txtNum1.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(0));
+            txtNum2.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(1));
+            txtNum3.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(2));
+            txtNum4.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(3));
+            txtNum5.setText("" + lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(4));
+
+            txtSNum1.setText("" + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(0));
+            txtSNum2.setText("" + lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(1));
+
+            txtSSNum1.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));
+            txtSSNum2.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));
+            txtSSNum3.setText("" + lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));
+        } catch (Exception e) {
+
+        }
     }
-    
+
     private void log(String message) {
         if (LOG) {
             System.out.println("JavaFX Controller: " + message);
