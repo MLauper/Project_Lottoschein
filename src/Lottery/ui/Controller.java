@@ -183,7 +183,7 @@ public class Controller {
 
         ObservableList<Integer> ticketselector = FXCollections.observableArrayList(lotteryDrawing.getTicketIDs());
         cboxTicketID.getItems().addAll(ticketselector);
-        cboxTicketID.getSelectionModel().selectFirst();
+        cboxTicketID.getSelectionModel().select(0);
 
     }
 
