@@ -379,4 +379,22 @@ public class LotteryDrawing {
         }
         return null;
     }
+    public List<Integer> getStarNumbers(int ticketId, int play){
+        if (this.hasSingleXML) {
+        	return lotteryTicketType.getPlay().get(play).getStarNumbers().getStarNumber();
+        }
+        if (this.hasMultipleXML) {
+        	return lotteryTicketsType.getLotteryTicket().get(ticketId).getPlay().get(play).getStarNumbers().getStarNumber();
+        }
+        return null;
+    }
+    public List<String> getSuperStarNumbers(int ticketId, int play){
+        if (this.hasSingleXML) {
+        	return lotteryTicketType.getPlay().get(play).getSuperStarNumbers().getSuperStar();
+        }
+        if (this.hasMultipleXML) {
+        	return lotteryTicketsType.getLotteryTicket().get(ticketId).getPlay().get(play).getSuperStarNumbers().getSuperStar();
+        }
+        return null;
+    }
 }

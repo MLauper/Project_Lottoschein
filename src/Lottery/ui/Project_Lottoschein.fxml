@@ -69,8 +69,8 @@
                         <Button layoutX="356.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnLoadXMLClicked" text="%button.text.loadxml" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="93.0" />
                         <Label layoutX="14.0" layoutY="53.0" text="%label.text.xmlfile" />
                   <Label layoutX="8.0" layoutY="140.0" text="%label.text.ticketid" />
-                  <ComboBox fx:id="cboxTicketID" layoutX="170.0" layoutY="135.0" onAction="#cboxTicketIDSelected" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="135.0" />
-                  <TabPane layoutX="14.0" layoutY="102.0" maxWidth="50.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="170.0">
+                  <ComboBox fx:id="cboxTicketID" layoutX="170.0" layoutY="135.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="135.0" />
+                  <TabPane fx:id="tabPanePlays" layoutX="14.0" layoutY="102.0" maxWidth="50.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="170.0">
 <tabs>
 <Tab text="%tab.text.play1" />
 <Tab text="%tab.text.play2" />
@@ -96,6 +96,7 @@
                   <TextField fx:id="txtSSNum3" layoutX="221.0" layoutY="323.0" prefHeight="26.0" prefWidth="60.0" />
                   <Label layoutX="78.0" layoutY="457.0" text="%label.text.ticketquantity" />
                   <TextField fx:id="txtTicketQuantity" layoutX="80.0" layoutY="481.0" prefHeight="26.0" prefWidth="60.0" />
+                  <Button layoutX="237.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnRefresh" text="get" />
                       </children>
                   </AnchorPane>
                 <AnchorPane>

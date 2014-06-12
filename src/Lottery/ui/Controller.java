@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -20,6 +21,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
@@ -33,6 +35,9 @@ public class Controller {
     Stage mainStage;
     LotteryTicketsType lotteryTicketsRootElement;
     LotteryDrawing lotteryDrawing;
+
+    @FXML
+    private TabPane tabPanePlays;
     
     @FXML
     private TextField txtTicketQuantity;
@@ -51,7 +56,7 @@ public class Controller {
     @FXML
     private TextField txtSNum1;
     @FXML
-    private TextField txtSNnum2;
+    private TextField txtSNum2;
 
     
     @FXML
@@ -158,6 +163,7 @@ public class Controller {
     @FXML
     void btnLoadXMLClicked(ActionEvent event) {
     	txtOutput.clear();
+    	cboxTicketID.getItems().clear();
         System.out.println("XSD is readable: "+new File(txtXSDPath.getText().replace("\\","\\\\")).canRead());
              
         lotteryDrawing.setValidationXSD(new File(txtXSDPath.getText().replace("\\","\\\\")));
@@ -196,6 +202,7 @@ public class Controller {
         
         ObservableList<Integer> ticketselector = FXCollections.observableArrayList(lotteryDrawing.getTicketIDs());
         cboxTicketID.getItems().addAll(ticketselector);
+        cboxTicketID.getSelectionModel().selectFirst();
 
     }
     @FXML
@@ -234,8 +241,31 @@ public class Controller {
     	txtOutput.clear();
     }
     @FXML
-    void cboxTicketIDSelected(ActionEvent event) {
-    	System.out.println("Selected Ticket ID:" +cboxTicketID.getValue());
+    void btnRefresh(ActionEvent event) {
+    	int selectedTicket = cboxTicketID.getSelectionModel().getSelectedIndex();
+    	int selectedPlay = tabPanePlays.getSelectionModel().getSelectedIndex();
+    	
+    	System.out.println("Selected Ticket Index: " +selectedTicket);
+    	System.out.println("Selected Tab Index   : " +selectedPlay);
+    	System.out.println("Numbers in List         : "+lotteryDrawing.getNumbers(selectedTicket, selectedPlay));
+    	System.out.println("StarNumbers in List     : "+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay));
+    	System.out.println("SuperStarNumbers in List: "+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay));
+    	try {
+	    	txtNum1.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(0));
+	    	txtNum2.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(1));
+	    	txtNum3.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(2));
+	    	txtNum4.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(3));
+	    	txtNum5.setText(""+lotteryDrawing.getNumbers(selectedTicket, selectedPlay).get(4));
+	    	
+	    	txtSNum1.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(0));
+	    	txtSNum2.setText(""+lotteryDrawing.getStarNumbers(selectedTicket, selectedPlay).get(1));
+	    	
+	    	txtSSNum1.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(0));
+	    	txtSSNum2.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(1));
+	    	txtSSNum3.setText(""+lotteryDrawing.getSuperStarNumbers(selectedTicket, selectedPlay).get(2));
+    	}catch(Exception e){
+    		
+    	}
     }
     
     private void log(String message) {
